@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: #4B9BC7;
+    text-decoration: none;
+    list-style: none;
+}
+p{
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    cursor: default;
+    font-weight: 600;
+    font-size: 1.2em;
+    margin-top: 50px;
+}
+body {
+    max-width: 60%;
+    margin: auto
+}
+img {
+    margin-top: 20%;
+    max-width: 100%;
+    height: auto;
+}
+a {
+    color: white;
+    text-decoration: underline;
+}
+textarea, input[type=text], input[type=email] {
+    color: #4B9BC7;
+    font-family: 'Roboto', sans-serif;
+    cursor: default;
+    font-weight: 400;
+    font-size: 1.2em;
+    padding: 10px;
+    margin:10px 0;
+    background-color: white;
+    border: none;
+    max-width: 100%;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 10px;
+}
+textarea:focus, input[type=text], input[type=email]{
+    outline-color: #4B9BC7;
+}
+::placeholder {
+    color: #4B9BC7;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+#age {
+    width: 3em;
+}
+.buttons > p {
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+  }
+footer {
+height: 100px;
+}
+
+/* The container */
+.container {
+    display: inline-block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+
+  
+  /* Hide the browser's default radio button */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  /* Create a custom radio button */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 22px;
+    width: 22px;
+    background-color: #4B9BC7;
+    border: 3px solid white;
+    border-radius: 50%;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  /* .container:hover input ~ .checkmark {
+    background-color: #ccc;
+  } */
+  
+  /* When the radio button is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: #4B9BC7;
+  }
+
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the indicator (dot/circle) when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the indicator (dot/circle) */
+  .container .checkmark:after {
+       top: 5px;
+      left: 5px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: white;
+  }
+
+  @media (max-width:1000px) {
+
+  body {
+    max-width: 80%;
+    }
+
+    textarea, input[type=text], input[type=email] {
+        font-size: 1em;
+    }
+    p {
+        font-size: 1em;
+    }
+}
+  

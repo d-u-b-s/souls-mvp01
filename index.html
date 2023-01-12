@@ -5,49 +5,83 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Souls MVP</title>
-    <link rel="stylesheet" href="souls-styles.css">
+    <link rel="stylesheet" href="mvp01.css">
 </head>
 <body>
-    <img width="1200x" height="450px" src="mvp-imgs/souls_logo02.jpg" alt="Souls Logo">
+    <img width="600px" height="225px" src="mvp-imgs/souls_logo02.jpg" alt="Souls Logo">
     
     <!-- <p>A user-generated archive of humanity<br>UI prototype version 3.1</p> -->
     
+    <p>Thanks for taking the time to take a look at our first public prototype. Below you'll find a short video that walks you through the most important features of our product. There are a few questions we would really, really getting your feedback on as well. </p>
+
     <h2>(video goes here)</h2>
     
-    <p>Here is the link to the prototype. You can try it for yourself <a href="https://tinyurl.com/2betw9u5">here</a></p>
+    <p>You can try the prototype for yourself <a target="_blank" href="https://tinyurl.com/2betw9u5">here</a>. Tap or click the screen on the phone to get started. Not all features are fully functional, but if you're ever stuck, tap anywhere and all the navigable options on the screen will flash blue. If at any point you're confused about what to do, please let us know in the survey.</p>
     
-    <p>Would you use this service? (Be honest, you won’t hurt our feelings.)</p>
-        <div class="y/n">
-        <input type="radio" name="radio" id="option1">
-        <label for="option1" class="yes">
-            <span>YES</span>
-        </label>
-        <input type="radio" name="radio" id="option2">
-        <label for="option2" class="no">
-            <span>NO</span>
-        </label>
-    </div>
+    <form action="">
+        <p>Would you use this service? (Be honest, you won’t hurt our feelings.)    </p>
+        <div class="buttons">
+            <p>Yes</p>
+            <label class="container">
+                <input type="radio" checked="checked" name="radio">
+                <span class="checkmark"></span>
+            </label>
+            <p>No</p>
+            <label class="container">
+                <input type="radio" checked="checked" name="radio">
+                <span class="checkmark"></span>
+            </label>
+        </div> 
 
-    <p>We'd really <i>really</i> appreciate it if you could answer a few questions for us :)</p>
+        <p>Can you elaborate on your choice for us?</p>
+        <textarea name="elaborate" id="elaborate" cols="100" rows="10"></   textarea>
 
-    <p>If so, were there any features that you liked in particular?</p>
-    <!-- <input type="text" class="textbox">  -->
-    <textarea name="ifYes" id="ifYes" rows="10"></textarea>
+        <p>Were there any features you liked in particular?</p>
+        <textarea name="likes" id="likes" cols="100" rows="10"></textarea>
+
+        <p>Anything you disliked?</p>
+        <textarea name="dislikes" id="dislikes" cols="100" rows="10"></textarea>
+
+        <p>What is your age?</p>
+        <input id="age" type="text" class="textbox" cols="3" rows="1">
+
+        <p>If you’re ok with us contacting you to ask some follow-up questions  or if you’re interested in contributing to the development of Souls in   some other way, please leave your contact information along with any  other comments you might have for us.</p>
+        <input type="text" class="textbox" placeholder="Your Name">
+        <input type="email" class="textbox" placeholder="email@example.com">
+
+        <p>Any additional comments?</p>
+        <textarea name="comments" id="comments" cols="100" rows="10"></textarea>
+    </form>
     
-    <p>If not, why?</p>
-    <input type="text" class="textbox">
+    <p>[legal/trademark info]</p>
+    <footer></footer>
 
-    <p>What is your age?</p>
-    <input type="text" class="textbox">
+    <script>
+        let movies = [];
+        // example {id:1592304983049, title: 'Deadpool', year: 2015}
+        const submitData = (ev)=>{
+            ev.preventDefault();  //to stop the form submitting
+            let movie = {
+                id: Date.now(),
+                title: document.getElementById('title').value,
+                year: document.getElementById('yr').value
+            }
+            movies.push(movie);
+            document.forms[0].reset(); // to clear the form for the next entries
+            //document.querySelector('form').reset();
 
-    <p>If you’re ok with us contacting you to ask some follow-up questions or if you’re interested in contributing to the development of Souls in some other way, please leave your contact information along with any other comments you might have for us.</p>
-    <input type="text" class="textbox" placeholder="Your Name">
-    <input type="email" class="textbox" placeholder="email@example.com">
+            //for display purposes only
+            console.warn('added' , {movies} );
+            let pre = document.querySelector('#msg pre');
+            pre.textContent = '\n' + JSON.stringify(movies, '\t', 2);
 
-    <p>Any additional comments?</p>
-    <input type="text" class="textbox">
-
-
+            //saving to localStorage
+            localStorage.setItem('MyMovieList', JSON.stringify(movies) );
+        }
+        document.addEventListener('DOMContentLoaded', ()=>{
+            document.getElementById('btn').addEventListener('click', submitData);
+        });
+    </script>
 
 </body>
 </html>
