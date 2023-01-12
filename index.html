@@ -34,7 +34,7 @@
         </div> 
 
         <p>Can you elaborate on your choice for us?</p>
-        <textarea name="elaborate" id="elaborate" cols="100" rows="10"></   textarea>
+        <textarea name="elaborate" id="elaborate" cols="100" rows="10"></textarea>
 
         <p>Were there any features you liked in particular?</p>
         <textarea name="likes" id="likes" cols="100" rows="10"></textarea>
@@ -51,37 +51,40 @@
 
         <p>Any additional comments?</p>
         <textarea name="comments" id="comments" cols="100" rows="10"></textarea>
+
+        <button id="submit">Submit</button>
     </form>
     
     <p>[legal/trademark info]</p>
     <footer></footer>
 
-    <script>
-        let movies = [];
+    <!-- <script>
+        let feedback = [];
         // example {id:1592304983049, title: 'Deadpool', year: 2015}
         const submitData = (ev)=>{
             ev.preventDefault();  //to stop the form submitting
-            let movie = {
+            let submission = {
                 id: Date.now(),
-                title: document.getElementById('title').value,
-                year: document.getElementById('yr').value
+                elaborate: document.getElementById('elaborate').value,
+                likes: document.getElementById('likes').value,
+                dislikes: document.getElementById('dislikes').value
             }
-            movies.push(movie);
+            feedback.push(submission);
             document.forms[0].reset(); // to clear the form for the next entries
             //document.querySelector('form').reset();
 
             //for display purposes only
-            console.warn('added' , {movies} );
+            console.warn('added' , {feedback} );
             let pre = document.querySelector('#msg pre');
-            pre.textContent = '\n' + JSON.stringify(movies, '\t', 2);
+            pre.textContent = '\n' + JSON.stringify(feedback, '\t', 2);
 
             //saving to localStorage
-            localStorage.setItem('MyMovieList', JSON.stringify(movies) );
+            localStorage.setItem('MyMovieList', JSON.stringify(feedback) );
         }
         document.addEventListener('DOMContentLoaded', ()=>{
-            document.getElementById('btn').addEventListener('click', submitData);
+            document.getElementById('submit').addEventListener('click', submitData);
         });
-    </script>
+    </script> -->
 
 </body>
 </html>
